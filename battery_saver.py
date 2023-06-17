@@ -3,7 +3,7 @@ import time
 import requests
 import logging
 
-VERSION="0.1.0"
+VERSION = "0.1.0"
 LOW_THRESHOLD = 50
 HIGH_THRESHOLD = 60
 
@@ -13,6 +13,7 @@ logging.basicConfig(
     filemode="a",
     format="%(asctime)s %(levelname)s %(message)s",
 )
+
 
 class Charger:
     def __init__(self, ip) -> None:

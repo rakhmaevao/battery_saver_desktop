@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "batterysaverdesktop"
+version = "0.1.0"
+description = ""
+authors = ["Александр Рахмаев <rahmaevao@engee.cloud>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
