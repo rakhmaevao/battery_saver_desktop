@@ -21,11 +21,11 @@ class Charger:
 
     def on(self):
         logging.info(f"charge on")
-        requests.get(f"http://{self.__ip}/relay_off")
+        requests.get(f"http://{self.__ip}/relay_on")
 
     def off(self):
         logging.info(f"charge off")
-        requests.get(f"http://{self.__ip}/relay_on")
+        requests.get(f"http://{self.__ip}/relay_off")
 
 
 def get_battery_percentage() -> float:

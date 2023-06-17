@@ -18,3 +18,9 @@ pip install .
 ```
 nvim /var/log/battery_saver/battery_saver_log.log
 ```
+
+4. Удаление логов
+
+```
+rm /var/log/battery_saver/battery_saver_log.log
+```
