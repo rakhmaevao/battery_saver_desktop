@@ -1,2 +1,4 @@
 /build
 /battery_saver.egg-info
+/.venv
+*.log
