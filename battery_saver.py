@@ -5,9 +5,7 @@ import logging
 import subprocess
 from retry import retry
 
-VERSION = subprocess.check_output(["git", "describe", "--always", "--tags"]).decode(
-    "UTF-8"
-)[:-1]
+VERSION = "0.1.0"
 LOW_THRESHOLD = 50
 HIGH_THRESHOLD = 55
 
@@ -23,7 +21,7 @@ class Charger:
     def __init__(self, ip) -> None:
         self.__ip = ip
 
-    @retry(ConnectionError, tries=3, delay=2)
+    @retry(ConnectionError, tries=10, delay=10)
     def __send_to_relay(self, endpoint: str):
         response = requests.get(f"http://{self.__ip}{endpoint}")
         if response.status_code != 200:
@@ -34,17 +32,17 @@ class Charger:
         try:
             self.__send_to_relay(endpoint)
         except Exception:
-            subprocess.Popen(
-                [
-                    "notify-send",
-                    "Ошибка",
-                    "Нет связи с реле",
-                    "-u",
-                    "CRITICAL",
-                    "-i",
-                    "/usr/share/icons/hicolor/48x48/apps/gnome-power-manager.png",
-                ]
-            )
+            # subprocess.Popen(
+            #     [
+            #         "notify-send",
+            #         "Ошибка",
+            #         "Нет связи с реле",
+            #         "-u",
+            #         "CRITICAL",
+            #         "-i",
+            #         "/usr/share/icons/hicolor/48x48/apps/gnome-power-manager.png",
+            #     ]
+            # )
             logging.critical(f"Relay not connection")
 
     def on(self):
@@ -70,7 +68,7 @@ def get_battery_percentage() -> float:
 def main():
     logging.info(f"Battery saver version {VERSION} is started.")
     logging.info(f"Thresholds: {LOW_THRESHOLD}..{HIGH_THRESHOLD}.")
-    charger = Charger("192.168.1.56")
+    charger = Charger("192.168.0.106")
     while True:
         battery_percentage = get_battery_percentage()
         logging.info(f"{battery_percentage=}")
