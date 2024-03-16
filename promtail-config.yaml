@@ -24,3 +24,17 @@ scrape_configs:
             - timestamp:
                 source: timestamp
                 format: '2006-01-02 15:04:05,999'
+      - match:
+          selector: '{job="battery_saver_logs"}'
+          stages:
+            - regex:
+                expression: '.*battery_percentage\=(?P<battery_percentage>\d+\.\d+)'
+            - labels:
+                battery_percentage:
+      - match:
+          selector: '{job="battery_saver_logs"}'
+          stages:
+            - regex:
+                expression: '.*charge\s(?P<charger_status>\w+)'
+            - labels:
+                charger_status:
