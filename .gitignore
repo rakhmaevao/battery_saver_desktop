@@ -2,3 +2,4 @@
 /battery_saver.egg-info
 /.venv
 *.log
+/.idea
