@@ -1,0 +1,26 @@
+server:
+  http_listen_port: 0
+  grpc_listen_port: 0
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+  - job_name: battery_saver_logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: battery_saver_logs
+          __path__: /logs/battery_saver_log.log
+    pipeline_stages:
+      - match:
+          selector: '{job="battery_saver_logs"}'
+          stages:
+            - regex:
+                expression: '^(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\,\d+).(?P<level>\S*)'
+            - labels:
+                level:
+            - timestamp:
+                source: timestamp
+                format: '2006-01-02 15:04:05,999'
