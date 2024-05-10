@@ -68,7 +68,7 @@ def get_battery_percentage() -> float:
 def main():
     logging.info(f"Battery saver version {VERSION} is started.")
     logging.info(f"Thresholds: {LOW_THRESHOLD}..{HIGH_THRESHOLD}.")
-    charger = Charger("192.168.0.106")
+    charger = Charger("192.168.0.100")
     while True:
         battery_percentage = get_battery_percentage()
         logging.info(f"{battery_percentage=}")
