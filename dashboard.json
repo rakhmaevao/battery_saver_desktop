@@ -1,201 +1,321 @@
 {
-    "annotations": {
-      "list": [
-        {
-          "builtIn": 1,
-          "datasource": {
-            "type": "grafana",
-            "uid": "-- Grafana --"
-          },
-          "enable": true,
-          "hide": true,
-          "iconColor": "rgba(0, 211, 255, 1)",
-          "name": "Annotations & Alerts",
-          "type": "dashboard"
-        }
-      ]
-    },
-    "editable": true,
-    "fiscalYearStartMonth": 0,
-    "graphTooltip": 0,
-    "id": 1,
-    "links": [],
-    "panels": [
+  "annotations": {
+    "list": [
       {
+        "builtIn": 1,
         "datasource": {
-          "type": "loki",
-          "uid": "P8E80F9AEF21F6940"
+          "type": "grafana",
+          "uid": "-- Grafana --"
         },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 8,
-          "w": 12,
-          "x": 0,
-          "y": 0
-        },
-        "id": 2,
-        "options": {
-          "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
-            "showLegend": true
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "datasource": {
-              "type": "loki",
-              "uid": "P8E80F9AEF21F6940"
-            },
-            "editorMode": "code",
-            "expr": "{job=\"battery_saver_logs\", battery_percentage=~\".+\"}",
-            "queryType": "range",
-            "refId": "A"
-          }
-        ],
-        "title": "Panel Title",
-        "transformations": [
-          {
-            "id": "extractFields",
-            "options": {
-              "keepTime": false,
-              "replace": false,
-              "source": "labels"
-            }
-          },
-          {
-            "id": "convertFieldType",
-            "options": {
-              "conversions": [
-                {
-                  "destinationType": "number",
-                  "targetField": "battery_percentage"
-                }
-              ],
-              "fields": {}
-            }
-          }
-        ],
-        "type": "timeseries"
-      },
-      {
-        "datasource": {
-          "type": "loki",
-          "uid": "P8E80F9AEF21F6940"
-        },
-        "fieldConfig": {
-          "defaults": {},
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 7,
-          "w": 24,
-          "x": 0,
-          "y": 8
-        },
-        "id": 1,
-        "options": {
-          "dedupStrategy": "none",
-          "enableLogDetails": true,
-          "prettifyLogMessage": false,
-          "showCommonLabels": false,
-          "showLabels": false,
-          "showTime": false,
-          "sortOrder": "Descending",
-          "wrapLogMessage": false
-        },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "datasource": {
-              "type": "loki",
-              "uid": "P8E80F9AEF21F6940"
-            },
-            "editorMode": "builder",
-            "expr": "{job=\"battery_saver_logs\"}",
-            "legendFormat": "",
-            "queryType": "range",
-            "refId": "A"
-          }
-        ],
-        "title": "Panel Title",
-        "type": "logs"
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
       }
-    ],
-    "preload": false,
-    "schemaVersion": 40,
-    "tags": [],
-    "templating": {
-      "list": []
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "P8E80F9AEF21F6940"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "stepAfter",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "editorMode": "code",
+          "expr": "{job=\"battery_saver_logs\",charger_status=~\".+\"}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Статус реле",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "source": "labels"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "enum",
+                "enumConfig": {
+                  "text": [
+                    "on",
+                    "off"
+                  ]
+                },
+                "targetField": "charger_status"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "timeseries"
     },
-    "time": {
-      "from": "now-7d",
-      "to": "now"
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "P8E80F9AEF21F6940"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "P8E80F9AEF21F6940"
+          },
+          "editorMode": "code",
+          "expr": "{job=\"battery_saver_logs\", battery_percentage=~\".+\"}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Процент заряда АКБ",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "keepTime": false,
+            "replace": false,
+            "source": "labels"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "battery_percentage"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "timeseries"
     },
-    "timepicker": {},
-    "timezone": "browser",
-    "title": "Battery Saver dashboard",
-    "uid": "de6bi4uesynlsa",
-    "version": 4,
-    "weekStart": ""
-  }
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "P8E80F9AEF21F6940"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 1,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "P8E80F9AEF21F6940"
+          },
+          "editorMode": "builder",
+          "expr": "{job=\"battery_saver_logs\"}",
+          "legendFormat": "",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Логи",
+      "type": "logs"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Battery Saver dashboard",
+  "uid": "de6bi4uesynlsa",
+  "version": 7,
+  "weekStart": ""
+}
