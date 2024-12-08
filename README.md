@@ -7,4 +7,13 @@ sudo mkdir /var/log/battery_saver
 sudo chmod 777 /var/log/battery_saver
 ```
 
-http://localhost:3000/d/cdfu4naqsrt34c/battery-saver?orgId=1&from=now-12h&to=now
+## Как смотреть статус?
+
+1. Запусти графану.
+2. Перейди в нее и далее на искомый дашборд
+
+http://localhost:3000/dashboards
+
+## Как управлять реле и смотреть его статус?
+
+http://192.168.0.100/
