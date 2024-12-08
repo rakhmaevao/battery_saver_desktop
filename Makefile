@@ -11,4 +11,4 @@ clear_logs:
 	rm /var/log/battery_saver/battery_saver_log.log
 
 up_grafana:
-	docker-compose up -d
+	docker compose up -d
