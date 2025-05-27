@@ -1,19 +1,18 @@
-[tool.poetry]
+[project]
 name = "batterysaverdesktop"
 version = "0.1.0"
 description = ""
-authors = ["Александр Рахмаев <rahmaevao@engee.cloud>"]
+authors = [{ name = "Александр Рахмаев", email = "rahmaevao@engee.cloud" }]
+requires-python = "~=3.11"
 readme = "README.md"
+dependencies = [
+    "requests>=2.31.0,<3",
+    "retry>=0.9.2,<0.10",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-requests = "^2.31.0"
-retry = "^0.9.2"
-
-
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.3.3"
+[dependency-groups]
+dev = ["ruff>=0.3.3,<0.4"]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
