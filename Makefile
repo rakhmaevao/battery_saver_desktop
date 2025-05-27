@@ -1,8 +1,8 @@
 format:
-	poetry run ruff format .
+	uv run ruff format .
 
 run:
-	poetry run python battery_saver.py
+	uv run python battery_saver.py
 
 show_logs:
 	cat /var/log/battery_saver/battery_saver_log.log
